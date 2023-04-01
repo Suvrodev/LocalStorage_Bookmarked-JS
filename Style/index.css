@@ -36,3 +36,18 @@
     left: 82%;
    
 }
+
+@media only screen and (max-width: 576px) {
+    .title{
+        width: 50%;
+        height: 150px;
+        margin: 5px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 0px;
+    }
+}
