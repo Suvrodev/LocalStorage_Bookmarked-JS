@@ -9,29 +9,72 @@ const loadProduct = () => {
     data.forEach((product) => {
       const card = document.createElement("div");
       card.classList.add("card", "m-2");
+      const isBookmarked=CheckBookmark(product.id);
+      if(isBookmarked===true){
+        card.innerHTML = `
+        <div class="bookmark-icon">
+      
+        <i onclick="handleRemoveBookmarked('${product.id}')" class="fa-solid fa-bookmark"></i>
 
-      card.innerHTML = `
-            <div class="bookmark-icon">
+      </div>
+      <div class="product-img-container">
+        <img
+          class="product-img"
+          src=${product.image}
+          alt=""
+        />
+      </div>
+      <h3>${product.name}</h3>
+      <p>The Widget 3000 is the latest and greatest in widget</p>
+      <div class="priceAndButtons">
+        <h2 class="text-primary">$${product.price}</h2>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+        `;
+  cards.appendChild(card);
+      }else{
+        card.innerHTML = `
+        <div class="bookmark-icon">
+        <i onclick="handleBookmark('${product.id}','${product.name}','${product.price}')" class="fa-regular fa-bookmark"></i>
+      </div>
+      <div class="product-img-container">
+        <img
+          class="product-img"
+          src=${product.image}
+          alt=""
+        />
+      </div>
+      <h3>${product.name}</h3>
+      <p>The Widget 3000 is the latest and greatest in widget</p>
+      <div class="priceAndButtons">
+        <h2 class="text-primary">$${product.price}</h2>
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+        `;
+  cards.appendChild(card);
+      }
+    //   card.innerHTML = `
+    //         <div class="bookmark-icon">
           
-            <i onclick="handleRemoveBookmarked('${product.id}')" class="fa-solid fa-bookmark"></i>
-            <i onclick="handleBookmark('${product.id}','${product.name}','${product.price}')" class="fa-regular fa-bookmark"></i>
+    //         <i onclick="handleRemoveBookmarked('${product.id}')" class="fa-solid fa-bookmark"></i>
+    //         <i onclick="handleBookmark('${product.id}','${product.name}','${product.price}')" class="fa-regular fa-bookmark"></i>
             
-          </div>
-          <div class="product-img-container">
-            <img
-              class="product-img"
-              src=${product.image}
-              alt=""
-            />
-          </div>
-          <h3>${product.name}</h3>
-          <p>The Widget 3000 is the latest and greatest in widget</p>
-          <div class="priceAndButtons">
-            <h2 class="text-primary">$${product.price}</h2>
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-            `;
-      cards.appendChild(card);
+    //       </div>
+    //       <div class="product-img-container">
+    //         <img
+    //           class="product-img"
+    //           src=${product.image}
+    //           alt=""
+    //         />
+    //       </div>
+    //       <h3>${product.name}</h3>
+    //       <p>The Widget 3000 is the latest and greatest in widget</p>
+    //       <div class="priceAndButtons">
+    //         <h2 class="text-primary">$${product.price}</h2>
+    //         <button class="btn btn-primary">Buy Now</button>
+    //       </div>
+    //         `;
+    //   cards.appendChild(card);
     });
   };
   
@@ -96,8 +139,20 @@ const loadProduct = () => {
             text:"There is no bookmarked"
         })
     }
-    
+  }
 
+  const CheckBookmark=id=>{
+    const PreviousBookmark=JSON.parse(localStorage.getItem('myBooMarked'));
+    if(PreviousBookmark){
+        const isThisPRoductMarked=PreviousBookmark.find(pd=>pd.id==id)
+        if(isThisPRoductMarked){
+            console.log(id," is Bookmarked")
+            return true;
+        }else{
+            console.log(id," is not Bookmarked")
+           return false;
+        }
+    }
   }
   
   

@@ -41,7 +41,7 @@
       "description": "Our Scented Candles are the perfect addition to any home. With their delightful scents and elegant design, they make a great gift for any occasion.",
       "price": 19.99,
       "inventory": 150,
-      "image": "https://fakestoreapi.com/img/81zfxAufy6L._AC_UL320_SR214,320_.jpg",
+      "image": "https://img.freepik.com/free-photo/burning-candles_1204-34.jpg?1&w=996&t=st=1680375889~exp=1680376489~hmac=63b2a48dae4d8fbf9b363881dff4b3cf0426f1c138cca94c97963c79f49ea3d3",
       "category": "home"
     },
     {
@@ -50,7 +50,7 @@
       "description": "The Gaming Mouse is designed for serious gamers who demand the best performance. With its high precision sensors and customizable buttons, you can take your gaming to the next level.",
       "price": 79.99,
       "inventory": 100,
-      "image": "https://fakestoreapi.com/img/71b49I7rJgL._AC_SL1500_.jpg",
+      "image": "https://img.freepik.com/free-vector/gradient-gaming-setup-sale-banner_23-2149833252.jpg?w=1060&t=st=1680375919~exp=1680376519~hmac=3030c0cd21e25c7a0758e934e5c803c686c30bdac4e1c6fa6ad90dd8b37c74b4",
       "category": "electronics"
     }
   ]
