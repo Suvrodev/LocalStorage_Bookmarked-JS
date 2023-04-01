@@ -1,3 +1,12 @@
+.title{
+    background-color: cornflowerblue;
+    color: yellow;
+    padding: 10px 7px;
+    margin: 10px;
+    border-radius: 7px;
+    box-shadow: 10px 10px 25px black;
+    text-shadow: 10px 5px 10px orangered;
+}
 .product-img{
     width:150px;
     height: 150px;
