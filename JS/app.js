@@ -13,7 +13,7 @@ const loadProduct = () => {
       card.innerHTML = `
             <div class="bookmark-icon">
           
-            <i class="fa-solid fa-bookmark"></i>
+            <i onclick="handleRemoveBookmarked('${product.id}')" class="fa-solid fa-bookmark"></i>
             <i onclick="handleBookmark('${product.id}','${product.name}','${product.price}')" class="fa-regular fa-bookmark"></i>
             
           </div>
@@ -41,7 +41,7 @@ const loadProduct = () => {
     // console.log('ID: '+id);
     // console.log('Name: '+name);
     // console.log('Price: '+price)
-    const product={id,name,price}
+    const product={id,name,price,bookmark: true}
     let Bookmark=[];
 
     const PreviousBookmark=JSON.parse(localStorage.getItem('myBooMarked'));
@@ -68,6 +68,36 @@ const loadProduct = () => {
        localStorage.setItem('myBooMarked',JSON.stringify(Bookmark))
     }
    
+  }
+
+  const handleRemoveBookmarked=(id)=>{
+    console.log('id: '+id)
+    const PreviousBookmark=JSON.parse(localStorage.getItem('myBooMarked'));
+    console.log(PreviousBookmark)
+    // console.log(typeof PreviousBookmark)
+    if(PreviousBookmark){
+        const isThisPRoductMarked=PreviousBookmark.find(pd=>pd.id===id)
+        if(isThisPRoductMarked){
+            const restOfThem=PreviousBookmark.filter(product=>product.id!==id)
+            console.log('Rest of Them: ')
+            console.log(restOfThem)
+            localStorage.setItem('myBooMarked',JSON.stringify(restOfThem))
+        }else{
+            Swal.fire({
+                icon:"error",
+                title: "Oops...",
+                text:"This Product is not available in bookmarked"
+            })
+        }
+    }else{
+        Swal.fire({
+            icon:"error",
+            title: "Oops...",
+            text:"There is no bookmarked"
+        })
+    }
+    
+
   }
   
   
